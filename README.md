@@ -16,7 +16,9 @@ A state builder.
 ## Features
 
 PhotoView aims to help produce an easily usable implementation of a zooming ImageView.
+
 Android use: https://github.com/Baseflow/PhotoView
+
 iOS use: https://github.com/suzuki-0000/SKPhotoBrowser and https://github.com/huynguyencong/ImageScrollView
 
 ## Getting started
