@@ -1,6 +1,6 @@
-name: photo_view
+name: flutter_photo_view
 description: PhotoView aims to help produce an easily usable implementation of a zooming ImageView.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/leonacky/flutter_photo_view
 
 environment:

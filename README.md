@@ -39,8 +39,7 @@ Alternatively, your editor might support dart pub get or flutter pub get. Check 
 ## Usage
 
 ```dart
-import 'package:photo_view/photo_view.dart';
-import 'package:photo_view/photo_view_controller.dart';
+import 'package:photo_view/flutter_photo_view.dart';
 
 PhotoViewController.presentWithUrls(
   photos: ['https://placehold.jp/150x150.png', 'https://placehold.jp/160x160.png']

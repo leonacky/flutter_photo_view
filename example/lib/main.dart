@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:photo_view/photo_view.dart';
-import 'package:photo_view/photo_view_controller.dart';
+import 'package:photo_view/flutter_photo_view.dart';
 
 void main() {
   runApp(const MyApp());
