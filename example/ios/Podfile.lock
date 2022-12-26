@@ -1,0 +1,39 @@
+PODS:
+  - Flutter (1.0.0)
+  - ImageScrollView (1.9.3)
+  - photo_view (0.0.1):
+    - Flutter
+    - ImageScrollView
+    - SDWebImage (~> 3.7)
+    - SKPhotoBrowser
+  - SDWebImage (3.8.3):
+    - SDWebImage/Core (= 3.8.3)
+  - SDWebImage/Core (3.8.3)
+  - SKPhotoBrowser (7.1.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - photo_view (from `.symlinks/plugins/photo_view/ios`)
+
+SPEC REPOS:
+  trunk:
+    - ImageScrollView
+    - SDWebImage
+    - SKPhotoBrowser
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  photo_view:
+    :path: ".symlinks/plugins/photo_view/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  ImageScrollView: d3ce8371e0d44299b2b638410db45387e18aa83f
+  photo_view: ccf5e20ee206c4984e523950e4063fe4a50ac24a
+  SDWebImage: a72e880a8fe0f7fc31efe15aaed443c074d2a80c
+  SKPhotoBrowser: cd95b95a6f352fc2a50992721299f75ead77f9ab
+
+PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
+
+COCOAPODS: 1.11.3
