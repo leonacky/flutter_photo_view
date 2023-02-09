@@ -25,18 +25,28 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 50),
+              padding: const EdgeInsets.only(top: 100),
               child: TextButton(
                   onPressed: () {
                     PhotoViewController.presentWithUrls(photos: [
-                      'https://placehold.jp/150x150.png',
-                      'https://placehold.jp/160x160.png'
-                    ], position: 1);
+                      'https://fastly.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4',
+                      'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+                      'https://fastly.picsum.photos/id/4/5000/3333.jpg?hmac=ghf06FdmgiD0-G4c9DdNM8RnBIN7BO0-ZGEw47khHP4',
+                    ], position: 0);
                   },
-                  child: const Text('show images')),
+                  child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
+                          border: Border.all(
+                              color: Colors.deepPurpleAccent, width: 1)),
+                      child: const Text('show images with urls'))),
             ),
             const Expanded(
-                child: PhotoView(src: 'https://placehold.jp/150x150.png'))
+                child: PhotoView(
+                    src:
+                        'https://fastly.picsum.photos/id/4/5000/3333.jpg?hmac=ghf06FdmgiD0-G4c9DdNM8RnBIN7BO0-ZGEw47khHP4'))
           ],
         ),
       ),
