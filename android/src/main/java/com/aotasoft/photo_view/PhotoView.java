@@ -24,8 +24,6 @@ public class PhotoView implements PlatformView {
     LayoutInflater layoutInflater = LayoutInflater.from(context);
     mainView = (ViewGroup) layoutInflater.inflate(R.layout.photo_view, null);
     imageView = mainView.findViewById(R.id.image);
-//    methodChannel = new MethodChannel(messenger, "plugins.aotasoft.com/mupdf_" + id);
-//    methodChannel.setMethodCallHandler(this);
 
     if (params.get("src") != null) {
       String src = (String) params.get("src");

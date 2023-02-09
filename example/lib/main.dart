@@ -13,7 +13,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     super.initState();
@@ -27,12 +26,17 @@ class _MyAppState extends State<MyApp> {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 50),
-              child: TextButton(onPressed: () {
-                PhotoViewController.presentWithUrls(
-                    photos: ['https://placehold.jp/150x150.png', 'https://placehold.jp/160x160.png']);
-              }, child: const Text('show images')),
+              child: TextButton(
+                  onPressed: () {
+                    PhotoViewController.presentWithUrls(photos: [
+                      'https://placehold.jp/150x150.png',
+                      'https://placehold.jp/160x160.png'
+                    ], position: 1);
+                  },
+                  child: const Text('show images')),
             ),
-            const Expanded(child: PhotoView(src: 'https://placehold.jp/150x150.png'))
+            const Expanded(
+                child: PhotoView(src: 'https://placehold.jp/150x150.png'))
           ],
         ),
       ),

@@ -26,16 +26,16 @@ class PhotoViewController {
     return Future.value();
   }
 
-  _presentWithUrls({required List<String> photos}) async {
+  _presentWithUrls({required List<String> photos, int position = 0}) async {
     try {
-      await _channel.invokeMethod('presentWithUrls', {'photos': json.encode(photos)});
+      await _channel.invokeMethod('presentWithUrls', {'photos': json.encode(photos), 'position': position});
     } on PlatformException catch (e) {
       print('${e.code}: ${e.message}');
     }
   }
 
-  static presentWithUrls({required List<String> photos}) async {
+  static presentWithUrls({required List<String> photos, int position = 0}) async {
     _controller ??= PhotoViewController(id: 0);
-    await _controller?._presentWithUrls(photos: photos);
+    await _controller?._presentWithUrls(photos: photos, position: position);
   }
 }

@@ -8,6 +8,8 @@ import androidx.viewpager.widget.ViewPager;
 
 public class HackyViewPager extends ViewPager {
 
+  boolean isPagingEnable = true;
+
   public HackyViewPager(Context context) {
     super(context);
   }
@@ -16,10 +18,19 @@ public class HackyViewPager extends ViewPager {
     super(context, attrs);
   }
 
+  public void setPagingEnable(boolean pagingEnable) {
+    isPagingEnable = pagingEnable;
+  }
+
+  @Override
+  public boolean onTouchEvent(MotionEvent ev) {
+    return isPagingEnable && super.onTouchEvent(ev);
+  }
+
   @Override
   public boolean onInterceptTouchEvent(MotionEvent ev) {
     try {
-      return super.onInterceptTouchEvent(ev);
+      return isPagingEnable && super.onInterceptTouchEvent(ev);
     } catch (IllegalArgumentException e) {
       return false;
     }

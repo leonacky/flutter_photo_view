@@ -12,7 +12,7 @@ public class SwiftPhotoViewPlugin: NSObject, FlutterPlugin {
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
     
-    func presentWithUrls(photos: String) {
+    func presentWithUrls(photos: String, position: Int) {
         var images = [SKPhoto]()
         let decoder = JSONDecoder()
         do {
@@ -28,7 +28,7 @@ public class SwiftPhotoViewPlugin: NSObject, FlutterPlugin {
         }
 
         let browser = SKPhotoBrowser(photos: images)
-        browser.initializePageIndex(0)
+        browser.initializePageIndex(position)
 
         let viewController: UIViewController =
                     (UIApplication.shared.delegate?.window??.rootViewController)!;
@@ -38,12 +38,16 @@ public class SwiftPhotoViewPlugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
       switch call.method {
       case "presentWithUrls":
+          var initPosition = 0
           guard let argMaps = call.arguments as? Dictionary<String, Any>,
                 let photos = argMaps["photos"] as? String else {
               result(FlutterError(code: call.method, message: "Missing argument", details: nil))
               return
           }
-          presentWithUrls(photos: photos)
+          if let argMaps = call.arguments as? Dictionary<String, Any>, let position = argMaps["position"] as? Int {
+              initPosition = position
+          }
+          presentWithUrls(photos: photos, position: initPosition)
       default:
 //          result(FlutterMethodNotImplemented)
           result(FlutterError(code: call.method, message: "Method not implemented", details: nil))

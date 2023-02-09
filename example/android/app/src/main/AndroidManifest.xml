@@ -26,8 +26,8 @@
                 android:resource="@style/NormalTheme" />
         </activity>
         <activity
-            android:name="com.aotasoft.photo_view.BrowserPhotoViewActivity"
-            android:theme="@style/LaunchTheme">
+            android:name="com.aotasoft.photo_view.PhotoViewerActivity"
+            android:resource="@style/Theme.AppCompat" >
 
         </activity>
         <!-- Don't delete the meta-data below.

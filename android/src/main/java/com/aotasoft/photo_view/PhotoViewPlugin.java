@@ -1,16 +1,14 @@
 package com.aotasoft.photo_view;
 
-import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
-import android.util.JsonReader;
 
 import androidx.annotation.NonNull;
-
-import org.json.JSONArray;
-import org.json.JSONException;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.embedding.engine.plugins.activity.ActivityAware;
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
@@ -19,7 +17,7 @@ import io.flutter.plugin.common.MethodChannel.Result;
 /**
  * PhotoViewPlugin
  */
-public class PhotoViewPlugin implements FlutterPlugin, MethodCallHandler {
+public class PhotoViewPlugin implements FlutterPlugin, MethodCallHandler, ActivityAware {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
@@ -43,11 +41,22 @@ public class PhotoViewPlugin implements FlutterPlugin, MethodCallHandler {
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     if (call.method.equals("presentWithUrls")) {
       String photos = call.argument("photos");
+
+      int position = 0;
       try {
-        Intent intent = new Intent(context, BrowserPhotoViewActivity.class);
-        intent.putExtra("photos", photos);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
+        position = call.argument("position");
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      try {
+//        Intent intent = new Intent(context, BrowserPhotoViewActivity.class);
+//        intent.putExtra("photos", photos);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
+        if(mainActivity!=null) {
+          FragmentManager manager = mainActivity.getSupportFragmentManager();
+          PhotoViewerFragment.create(photos, position).show(manager, "gallery_show");
+        }
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -60,5 +69,28 @@ public class PhotoViewPlugin implements FlutterPlugin, MethodCallHandler {
   @Override
   public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
     channel.setMethodCallHandler(null);
+  }
+
+  FragmentActivity mainActivity;
+  @Override
+  public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
+    if(binding.getActivity() instanceof FragmentActivity) {
+      mainActivity = (FragmentActivity) binding.getActivity();
+    }
+  }
+
+  @Override
+  public void onDetachedFromActivityForConfigChanges() {
+  }
+
+  @Override
+  public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding binding) {
+    if(binding.getActivity() instanceof FragmentActivity) {
+      mainActivity = (FragmentActivity) binding.getActivity();
+    }
+  }
+
+  @Override
+  public void onDetachedFromActivity() {
   }
 }
