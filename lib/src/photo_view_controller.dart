@@ -17,7 +17,6 @@ class PhotoViewController {
   Future<dynamic> _handleMethodCalls(MethodCall call) async {
     switch (call.method) {
       case 'onChangePage':
-        var page = call.arguments['page'];
         break;
       default:
         print('Unknowm method ${call.method} ');
