@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-A state builder.
+PhotoView Plugin for Flutter (iOS & Android)
 
 ## Features
 
@@ -31,8 +31,9 @@ $ flutter pub add flutter_photo_view
 This will add a line like this to your package's pubspec.yaml (and run an implicit dart pub get):
 ```
 dependencies:
-    flutter_photo_view: ^1.0.0
+    flutter_photo_view: ^1.0.2
 ```
+NOTE: On Android, change MainActivity extend to FlutterFragmentActivity
 
 Alternatively, your editor might support dart pub get or flutter pub get. Check the docs for your editor to learn more.
 
@@ -42,7 +43,8 @@ Alternatively, your editor might support dart pub get or flutter pub get. Check 
 import 'package:photo_view/flutter_photo_view.dart';
 
 PhotoViewController.presentWithUrls(
-  photos: ['https://placehold.jp/150x150.png', 'https://placehold.jp/160x160.png']
+  photos: ['https://placehold.jp/150x150.png', 'https://placehold.jp/160x160.png'], 
+  position: 0
 );
 ```
 
