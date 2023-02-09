@@ -31,7 +31,7 @@ $ flutter pub add flutter_photo_view
 This will add a line like this to your package's pubspec.yaml (and run an implicit dart pub get):
 ```
 dependencies:
-    flutter_photo_view: ^1.0.2
+    flutter_photo_view: ^1.0.3
 ```
 NOTE: On Android, change MainActivity extend to FlutterFragmentActivity
 

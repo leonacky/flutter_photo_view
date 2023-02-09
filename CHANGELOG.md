@@ -9,3 +9,6 @@
 * Update android support swipe up/down to dismiss
 * Update indicator for android
 * Update initial start page
+
+## 1.0.3
+*Update document
